@@ -15,6 +15,24 @@ background-position:center;
 background-attachment:fixed;
 }
 
+.nav{
+background:#000;
+padding:18px 20px;
+display:flex;
+justify-content:center;
+gap:30px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+}
+
 .overlay{
 background:rgba(0,0,0,0.8);
 min-height:100vh;
@@ -79,22 +97,17 @@ cursor:pointer;
 margin-top:15px;
 box-shadow:0 0 15px rgba(255,90,0,0.35);
 }
-
-a{
-text-decoration:none;
-color:white;
-}
-
-.back{
-margin-top:30px;
-font-size:18px;
-}
 </style>
 </head>
 <body>
 
-<div class="overlay">
+<div class="nav">
+  <a href="index.html">Home</a>
+  <a href="chefs.html">Find a Chef</a>
+  <a href="become-a-chef.html">Become a Chef</a>
+</div>
 
+<div class="overlay">
   <div class="hero">
     <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Daniel Wu">
     <h1>Book Daniel Wu</h1>
@@ -114,11 +127,6 @@ font-size:18px;
 
     <button type="submit">Request Booking</button>
   </form>
-
-  <div class="back">
-    <a href="daniel.html">← Back to Daniel</a>
-  </div>
-
 </div>
 
 </body>
