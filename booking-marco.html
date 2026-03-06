@@ -61,6 +61,13 @@ max-width:600px;
 margin:0 auto;
 }
 
+.price-note{
+margin-top:12px;
+font-size:18px;
+font-weight:bold;
+color:#fff;
+}
+
 form{
 background:rgba(20,20,20,0.95);
 max-width:520px;
@@ -84,6 +91,24 @@ color:white;
 textarea{
 min-height:120px;
 resize:vertical;
+}
+
+.total-box{
+margin:18px auto 6px auto;
+padding:16px;
+width:90%;
+background:#1a1a1a;
+border:1px solid #333;
+border-radius:12px;
+font-size:22px;
+font-weight:bold;
+color:#ffb38a;
+}
+
+.small-text{
+font-size:14px;
+color:#bbb;
+margin-top:8px;
 }
 
 button{
@@ -112,6 +137,7 @@ box-shadow:0 0 15px rgba(255,90,0,0.35);
     <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80" alt="Marco Rossi">
     <h1>Book Marco Rossi</h1>
     <p>Italian Fine Dining Chef — premium in-home dining experience.</p>
+    <div class="price-note">$110 per guest</div>
   </div>
 
   <form action="https://formspree.io/f/xreygzbj" method="POST">
@@ -122,12 +148,26 @@ box-shadow:0 0 15px rgba(255,90,0,0.35);
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Email Address" required>
     <input type="date" name="date" required>
-    <input type="number" name="guests" placeholder="Number of Guests" required>
+    <input type="number" id="guests" name="guests" placeholder="Number of Guests" min="1" required oninput="updateTotal()">
     <textarea name="requests" placeholder="Special Requests"></textarea>
+
+    <div class="total-box">
+      Estimated Total: $<span id="total">0</span>
+    </div>
+    <div class="small-text">Based on $110 per guest.</div>
 
     <button type="submit">Request Booking</button>
   </form>
 </div>
+
+<script>
+function updateTotal() {
+  const guests = parseInt(document.getElementById('guests').value) || 0;
+  const pricePerGuest = 110;
+  const total = guests * pricePerGuest;
+  document.getElementById('total').textContent = total;
+}
+</script>
 
 </body>
 </html>
