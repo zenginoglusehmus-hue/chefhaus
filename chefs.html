@@ -1,37 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Book a Chef - ChefHaus</title>
-
+<title>Find a Chef - ChefHaus</title>
 <style>
-
 body{
-font-family: Arial;
+margin:0;
+font-family:Arial, sans-serif;
 background:#111;
 color:white;
 text-align:center;
-padding:60px;
 }
 
-h1{
-font-size:40px;
-margin-bottom:20px;
+.header{
+padding:50px 20px 30px 20px;
+background:#000;
 }
 
-form{
-background:#1a1a1a;
-max-width:500px;
-margin:auto;
-padding:30px;
-border-radius:12px;
+.header h1{
+font-size:48px;
+margin-bottom:10px;
 }
 
-input, textarea{
-width:90%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:8px;
+.header p{
+font-size:20px;
+color:#ddd;
+}
+
+.chefs{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+padding:50px 20px;
+}
+
+.card{
+background:#1c1c1c;
+border-radius:14px;
+width:300px;
+overflow:hidden;
+box-shadow:0 4px 12px rgba(0,0,0,0.4);
+text-align:left;
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card h2{
+margin:0 0 10px 0;
+font-size:26px;
+}
+
+.card p{
+margin:8px 0;
+color:#ddd;
 font-size:16px;
 }
 
@@ -39,49 +68,73 @@ button{
 background:#ff5a00;
 color:white;
 border:none;
-padding:14px 28px;
+padding:14px 24px;
 font-size:16px;
 border-radius:10px;
 cursor:pointer;
-margin-top:10px;
+margin-top:15px;
+width:100%;
 }
 
 a{
-color:white;
 text-decoration:none;
+color:white;
+}
+
+.back{
+margin:20px 0 50px 0;
+font-size:18px;
 }
 
 </style>
-
 </head>
-
 <body>
 
-<h1>Book Your Chef</h1>
+<div class="header">
+  <h1>Find a Chef</h1>
+  <p>Choose your perfect private chef for a premium home dining experience.</p>
+</div>
 
-<form action="https://formspree.io/f/xreygzbj" method="POST">
+<div class="chefs">
 
-<input type="text" name="name" placeholder="Your Name" required>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80" alt="Marco Rossi">
+    <div class="card-content">
+      <h2>Marco Rossi</h2>
+      <p><strong>Specialty:</strong> Italian Fine Dining</p>
+      <p><strong>Price:</strong> $220 per booking</p>
+      <p><strong>Experience:</strong> 12 years</p>
+      <a href="booking.html"><button>Book Marco</button></a>
+    </div>
+  </div>
 
-<input type="email" name="email" placeholder="Email Address" required>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Aisha Rahman">
+    <div class="card-content">
+      <h2>Aisha Rahman</h2>
+      <p><strong>Specialty:</strong> Modern Middle Eastern</p>
+      <p><strong>Price:</strong> $240 per booking</p>
+      <p><strong>Experience:</strong> 10 years</p>
+      <a href="booking.html"><button>Book Aisha</button></a>
+    </div>
+  </div>
 
-<input type="date" name="date" required>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Daniel Wu">
+    <div class="card-content">
+      <h2>Daniel Wu</h2>
+      <p><strong>Specialty:</strong> Asian Fusion</p>
+      <p><strong>Price:</strong> $210 per booking</p>
+      <p><strong>Experience:</strong> 8 years</p>
+      <a href="booking.html"><button>Book Daniel</button></a>
+    </div>
+  </div>
 
-<input type="number" name="guests" placeholder="Number of Guests" required>
+</div>
 
-<textarea name="requests" placeholder="Special Requests"></textarea>
-
-<input type="hidden" name="_subject" value="New ChefHaus Booking Request">
-
-<input type="hidden" name="_captcha" value="false">
-
-<button type="submit">Request Booking</button>
-
-</form>
-
-<p style="margin-top:30px;">
-<a href="index.html">← Back to Home</a>
-</p>
+<div class="back">
+  <a href="index.html">← Back to Home</a>
+</div>
 
 </body>
 </html>
