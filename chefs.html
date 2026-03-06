@@ -240,4 +240,14 @@ function filterCity(city, button) {
   button.classList.add('active');
 
   cards.forEach(card => {
-    if (city === 'all' || card.getAttribute('
+    if (city === 'all' || card.getAttribute('data-city') === city) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+</script>
+
+</body>
+</html>
