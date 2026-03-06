@@ -11,6 +11,24 @@ color:white;
 text-align:center;
 }
 
+.nav{
+background:#000;
+padding:18px 20px;
+display:flex;
+justify-content:center;
+gap:30px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+}
+
 .header{
 padding:50px 20px 30px 20px;
 background:#000;
@@ -80,14 +98,15 @@ a{
 text-decoration:none;
 color:white;
 }
-
-.back{
-margin:20px 0 50px 0;
-font-size:18px;
-}
 </style>
 </head>
 <body>
+
+<div class="nav">
+  <a href="index.html">Home</a>
+  <a href="chefs.html">Find a Chef</a>
+  <a href="become-a-chef.html">Become a Chef</a>
+</div>
 
 <div class="header">
   <h1>Find a Chef</h1>
@@ -95,7 +114,6 @@ font-size:18px;
 </div>
 
 <div class="chefs">
-
   <div class="card">
     <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80" alt="Marco Rossi">
     <div class="card-content">
@@ -128,11 +146,6 @@ font-size:18px;
       <a href="daniel.html"><button>View Daniel</button></a>
     </div>
   </div>
-
-</div>
-
-<div class="back">
-  <a href="index.html">← Back to Home</a>
 </div>
 
 </body>
