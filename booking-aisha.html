@@ -5,19 +5,20 @@
 <style>
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#111;
 color:white;
 text-align:center;
-background-image:url('https://images.unsplash.com/photo-1529042410759-befb1204b468');
+background-image:url('https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=1600&q=80');
 background-size:cover;
 background-position:center;
+background-attachment:fixed;
 }
 
 .overlay{
 background:rgba(0,0,0,0.8);
 min-height:100vh;
-padding:50px 20px;
+padding:50px 20px 80px 20px;
 }
 
 .hero img{
@@ -26,6 +27,8 @@ height:140px;
 border-radius:50%;
 object-fit:cover;
 border:4px solid #ff5a00;
+box-shadow:0 0 20px rgba(255,90,0,0.4);
+margin-bottom:20px;
 }
 
 .hero h1{
@@ -33,60 +36,88 @@ font-size:42px;
 margin:10px 0;
 }
 
-form{
-background:#1c1c1c;
-max-width:500px;
-margin:30px auto;
-padding:30px;
-border-radius:15px;
+.hero p{
+font-size:18px;
+color:#ddd;
+max-width:600px;
+margin:0 auto;
 }
 
-input,textarea{
+form{
+background:rgba(20,20,20,0.95);
+max-width:520px;
+margin:30px auto 0 auto;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,0.5);
+}
+
+input, textarea{
 width:90%;
-padding:12px;
-margin:10px;
-border-radius:8px;
+padding:14px;
+margin:10px 0;
 border:none;
+border-radius:10px;
+font-size:16px;
 background:#2a2a2a;
 color:white;
 }
 
+textarea{
+min-height:120px;
+resize:vertical;
+}
+
 button{
 background:#ff5a00;
-border:none;
-padding:15px 30px;
 color:white;
+border:none;
+padding:16px 30px;
 font-size:18px;
 border-radius:10px;
 cursor:pointer;
+margin-top:15px;
+box-shadow:0 0 15px rgba(255,90,0,0.35);
+}
+
+a{
+text-decoration:none;
+color:white;
+}
+
+.back{
+margin-top:30px;
+font-size:18px;
 }
 </style>
 </head>
-
 <body>
 
 <div class="overlay">
 
-<div class="hero">
-<img src="https://images.unsplash.com/photo-1559339352-11d035aa65de">
-<h1>Book Aisha Rahman</h1>
-<p>Modern Middle Eastern Chef</p>
-</div>
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Aisha Rahman">
+    <h1>Book Aisha Rahman</h1>
+    <p>Modern Middle Eastern Chef — bold flavours and elegant shared dining.</p>
+  </div>
 
-<form action="https://formspree.io/f/xreygzbj" method="POST">
-<input type="hidden" name="chef" value="Aisha Rahman">
+  <form action="https://formspree.io/f/xreygzbj" method="POST">
+    <input type="hidden" name="chef" value="Aisha Rahman">
+    <input type="hidden" name="_subject" value="New ChefHaus Booking Request - Aisha Rahman">
+    <input type="hidden" name="_captcha" value="false">
 
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Email Address" required>
-<input type="date" name="date" required>
-<input type="number" name="guests" placeholder="Number of Guests" required>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="date" name="date" required>
+    <input type="number" name="guests" placeholder="Number of Guests" required>
+    <textarea name="requests" placeholder="Special Requests"></textarea>
 
-<textarea name="requests" placeholder="Special Requests"></textarea>
+    <button type="submit">Request Booking</button>
+  </form>
 
-<button type="submit">Request Booking</button>
-</form>
-
-<a href="index.html">← Back to Home</a>
+  <div class="back">
+    <a href="aisha.html">← Back to Aisha</a>
+  </div>
 
 </div>
 
