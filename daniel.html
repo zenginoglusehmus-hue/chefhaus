@@ -3,166 +3,286 @@
 <head>
 <title>Daniel Wu - ChefHaus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-*{box-sizing:border-box}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#111;
-  color:white;
-  text-align:center;
+font-family:Arial, sans-serif;
+background:#0d0d0f;
+color:white;
 }
+
+/* HEADER */
+
+.topbar{
+background:#0a0a0a;
+padding:18px 16px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.brand{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+margin-bottom:16px;
+}
+
+.brand img{
+width:52px;
+height:52px;
+border-radius:12px;
+}
+
+.brand-name{
+font-size:34px;
+font-weight:700;
+}
+
 .nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 22px;
-  background:rgba(10,10,10,0.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,0.06);
+display:flex;
+justify-content:center;
+gap:24px;
+flex-wrap:wrap;
 }
-.brand{font-size:24px;font-weight:700}
-.nav-links{display:flex;gap:18px;flex-wrap:wrap}
-.nav a{color:white;text-decoration:none;font-size:16px;font-weight:bold}
+
+.nav a{
+color:#f2f2f2;
+text-decoration:none;
+font-size:15px;
+font-weight:600;
+}
+
+/* HERO */
+
 .hero{
-  padding:70px 20px 50px 20px;
-  background:#000;
+text-align:center;
+padding:70px 20px;
+background:
+linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+url("https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
 }
+
 .hero img{
-  width:220px;
-  height:220px;
-  object-fit:cover;
-  border-radius:50%;
-  border:5px solid #ff6a00;
-  margin-bottom:20px;
-  box-shadow:0 0 18px rgba(255,106,0,0.26);
+width:140px;
+height:140px;
+border-radius:50%;
+border:4px solid #ff5a2f;
+margin-bottom:20px;
+object-fit:cover;
 }
+
 .hero h1{
-  font-size:46px;
-  margin:10px 0;
+font-size:48px;
+margin-bottom:10px;
 }
+
 .hero p{
-  font-size:19px;
-  color:#ddd;
-  max-width:760px;
-  margin:0 auto 18px auto;
-  line-height:1.6;
+font-size:18px;
+color:#ddd;
 }
-.cta{
-  display:inline-block;
-  margin-top:10px;
-  text-decoration:none;
-  background:linear-gradient(135deg,#ff6a00,#ff9d57);
-  color:white;
-  padding:16px 28px;
-  border-radius:14px;
-  font-weight:bold;
+
+.price{
+font-size:24px;
+margin-top:10px;
+font-weight:700;
 }
+
+/* BOOK BUTTON */
+
+.book-btn{
+display:inline-block;
+margin-top:25px;
+background:linear-gradient(135deg,#c92a1f,#ff5a2f);
+padding:16px 28px;
+border-radius:14px;
+text-decoration:none;
+color:white;
+font-weight:700;
+}
+
+/* SECTION */
+
 .section{
-  padding:60px 20px;
+padding:70px 20px;
+text-align:center;
 }
+
 .section h2{
-  font-size:34px;
-  margin:0 0 24px 0;
+font-size:38px;
+margin-bottom:30px;
 }
+
+/* CARDS */
+
 .cards{
-  max-width:1180px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
+display:grid;
+grid-template-columns:1fr;
+gap:22px;
+max-width:1100px;
+margin:auto;
 }
+
 .card{
-  background:linear-gradient(180deg,#17181b,#1f2024);
-  padding:24px;
-  border-radius:20px;
-  box-shadow:0 10px 26px rgba(0,0,0,0.4);
-  border:1px solid #2b2d33;
+background:#151518;
+border-radius:20px;
+padding:22px;
+border:1px solid rgba(255,255,255,0.06);
 }
+
 .card img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  border-radius:14px;
-  margin-bottom:15px;
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:14px;
+margin-bottom:15px;
 }
+
 .card h3{
-  margin:0 0 10px 0;
-  font-size:24px;
+font-size:24px;
+margin-bottom:10px;
 }
+
 .card p{
-  margin:0;
-  color:#d0d0d5;
-  line-height:1.6;
+color:#ccc;
 }
-@media(max-width:700px){
-  .nav{flex-direction:column;gap:12px}
-  .hero h1{font-size:38px}
+
+/* FOOTER */
+
+.footer{
+text-align:center;
+padding:30px;
+color:#999;
+border-top:1px solid rgba(255,255,255,0.06);
+background:#0a0a0a;
 }
+
+@media(min-width:768px){
+
+.brand{
+justify-content:flex-start;
+margin-bottom:0;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 28px;
+}
+
+.cards{
+grid-template-columns:repeat(3,1fr);
+}
+
+.hero h1{
+font-size:60px;
+}
+
+}
+
 </style>
 </head>
+
 <body>
 
-<div class="nav">
-  <div class="brand">ChefHaus</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="chefs.html">Find a Chef</a>
-    <a href="become-a-chef.html">Become a Chef</a>
-  </div>
+<div class="topbar">
+
+<div class="brand">
+<img src="logo.png">
+<div class="brand-name">ChefHaus</div>
 </div>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="chefs.html">Find a Chef</a>
+<a href="become-a-chef.html">Become a Chef</a>
+</div>
+
+</div>
+
 
 <div class="hero">
-  <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80" alt="Daniel Wu">
-  <h1>Daniel Wu</h1>
-  <p>Asian Fusion Chef with 8 years of experience creating exciting menus that blend modern technique with bold flavour.</p>
-  <p><strong>Rating:</strong> ★ 4.7 &nbsp;|&nbsp; <strong>From:</strong> Brisbane &nbsp;|&nbsp; <strong>Price:</strong> $105 per guest</p>
-  <a class="cta" href="booking-daniel.html">Book Daniel</a>
+
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80">
+
+<h1>Daniel Wu</h1>
+
+<p>Asian Fusion Specialist</p>
+
+<div class="price">$105 per guest</div>
+
+<a class="book-btn" href="booking-daniel.html">
+Book Daniel
+</a>
+
 </div>
 
-<div class="section">
-  <h2>Customer Reviews</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>⭐ 4.8</h3>
-      <p>"Daniel’s menu was creative, fresh, and full of flavour. Loved every course."</p>
-      <p><strong>— Jason, Gold Coast</strong></p>
-    </div>
-    <div class="card">
-      <h3>⭐ 4.7</h3>
-      <p>"Such a cool dining experience at home. The fusion dishes were a hit."</p>
-      <p><strong>— Chloe, Sydney</strong></p>
-    </div>
-    <div class="card">
-      <h3>⭐ 4.9</h3>
-      <p>"Amazing presentation and really unique food. Would book Daniel again."</p>
-      <p><strong>— Michael, Melbourne</strong></p>
-    </div>
-  </div>
-</div>
 
 <div class="section">
-  <h2>Sample Menu</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=80" alt="Asian Starters">
-      <h3>Asian Starters</h3>
-      <p>Light, flavour-packed small plates to begin the meal.</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1000&q=80" alt="Fusion Mains">
-      <h3>Fusion Mains</h3>
-      <p>Creative dishes inspired by Japanese, Chinese, and modern Asian cooking.</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=1000&q=80" alt="Signature Dessert">
-      <h3>Signature Dessert</h3>
-      <p>A stylish sweet finish to complete the experience.</p>
-    </div>
-  </div>
+
+<h2>Customer Reviews</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>⭐ 4.8</h3>
+<p>"Daniel’s menu was creative, fresh, and full of flavour. Loved every course."</p>
+</div>
+
+<div class="card">
+<h3>⭐ 4.7</h3>
+<p>"Such a cool dining experience at home. The fusion dishes were a hit."</p>
+</div>
+
+<div class="card">
+<h3>⭐ 4.9</h3>
+<p>"Amazing presentation and really unique food. Would book Daniel again."</p>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Sample Menu</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=80">
+<h3>Asian Starters</h3>
+<p>Flavour-packed small plates to begin the meal.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1000&q=80">
+<h3>Fusion Mains</h3>
+<p>Creative dishes inspired by modern Asian cooking.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=1000&q=80">
+<h3>Signature Dessert</h3>
+<p>A stylish sweet finish to complete the experience.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+ChefHaus © 2026
 </div>
 
 </body>
