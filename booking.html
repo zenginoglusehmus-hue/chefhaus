@@ -3,71 +3,107 @@
 <head>
 <title>Book a Chef - ChefHaus</title>
 <style>
-
 body{
-font-family:Arial;
+margin:0;
+font-family:Arial, sans-serif;
 background:#111;
 color:white;
 text-align:center;
-padding:60px;
+}
+
+.hero{
+padding:60px 20px 30px 20px;
+background:#000;
+}
+
+.hero h1{
+font-size:46px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+color:#ddd;
+max-width:700px;
+margin:0 auto;
+}
+
+.form-wrap{
+padding:50px 20px 70px 20px;
 }
 
 form{
-background:#1a1a1a;
-max-width:500px;
+background:#1c1c1c;
+max-width:520px;
 margin:auto;
 padding:30px;
-border-radius:12px;
+border-radius:16px;
+box-shadow:0 4px 12px rgba(0,0,0,0.4);
 }
 
 input, textarea{
 width:90%;
-padding:12px;
+padding:14px;
 margin:10px 0;
 border:none;
-border-radius:8px;
+border-radius:10px;
 font-size:16px;
+background:#2a2a2a;
+color:white;
+}
+
+textarea{
+min-height:120px;
+resize:vertical;
 }
 
 button{
 background:#ff5a00;
 color:white;
 border:none;
-padding:14px 28px;
-font-size:16px;
+padding:16px 30px;
+font-size:18px;
 border-radius:10px;
 cursor:pointer;
+margin-top:15px;
 }
 
 a{
-color:white;
 text-decoration:none;
+color:white;
 }
 
+.back{
+margin-top:30px;
+font-size:18px;
+}
 </style>
 </head>
-
 <body>
 
-<h1>Book Your Chef</h1>
+<div class="hero">
+  <h1>Book Your Chef</h1>
+  <p>Tell us your details and request your private dining experience.</p>
+</div>
 
-<form action="https://formspree.io/f/your_form_id" method="post">
+<div class="form-wrap">
+  <form action="https://formspree.io/f/xreygzbj" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="date" name="date" required>
+    <input type="number" name="guests" placeholder="Number of Guests" required>
+    <textarea name="requests" placeholder="Special Requests"></textarea>
 
-<input type="text" placeholder="Your Name">
+    <input type="hidden" name="_subject" value="New ChefHaus Booking Request">
+    <input type="hidden" name="_captcha" value="false">
 
-<input type="email" placeholder="Email">
+    <button type="submit">Request Booking</button>
+  </form>
 
-<input type="date">
-
-<input type="number" placeholder="Number of Guests">
-
-<textarea placeholder="Special requests"></textarea>
-
-<button type="submit">Request Booking</button>
-
-</form>
-
-<p><a href="index.html">Back to Home</a></p>
+  <div class="back">
+    <a href="index.html">← Back to Home</a>
+  </div>
+</div>
 
 </body>
 </html>
