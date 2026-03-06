@@ -2,174 +2,126 @@
 <html>
 <head>
 <title>Aisha Rahman - ChefHaus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+*{box-sizing:border-box}
 body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#111;
-color:white;
-text-align:center;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#111;
+  color:white;
+  text-align:center;
 }
-
 .nav{
-background:#000;
-padding:18px 20px;
-display:flex;
-justify-content:center;
-gap:30px;
-position:sticky;
-top:0;
-z-index:1000;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 22px;
+  background:rgba(10,10,10,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
 }
-
-.nav a{
-color:white;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;
-}
-
+.brand{font-size:24px;font-weight:700}
+.nav-links{display:flex;gap:18px;flex-wrap:wrap}
+.nav a{color:white;text-decoration:none;font-size:16px;font-weight:bold}
 .hero{
-padding:60px 20px;
-background:#000;
+  padding:70px 20px 50px 20px;
+  background:#000;
 }
-
 .hero img{
-width:220px;
-height:220px;
-object-fit:cover;
-border-radius:50%;
-border:5px solid #ff5a00;
-margin-bottom:20px;
+  width:220px;
+  height:220px;
+  object-fit:cover;
+  border-radius:50%;
+  border:5px solid #ff6a00;
+  margin-bottom:20px;
+  box-shadow:0 0 18px rgba(255,106,0,0.26);
 }
-
 .hero h1{
-font-size:44px;
-margin:10px 0;
+  font-size:46px;
+  margin:10px 0;
 }
-
 .hero p{
-font-size:20px;
-color:#ddd;
-max-width:700px;
-margin:0 auto 20px auto;
+  font-size:19px;
+  color:#ddd;
+  max-width:760px;
+  margin:0 auto 18px auto;
+  line-height:1.6;
 }
-
+.cta{
+  display:inline-block;
+  margin-top:10px;
+  text-decoration:none;
+  background:linear-gradient(135deg,#ff6a00,#ff9d57);
+  color:white;
+  padding:16px 28px;
+  border-radius:14px;
+  font-weight:bold;
+}
 .section{
-padding:50px 20px;
+  padding:60px 20px;
 }
-
+.section h2{
+  font-size:34px;
+  margin:0 0 24px 0;
+}
 .cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
 }
-
 .card{
-background:#1c1c1c;
-padding:25px;
-border-radius:14px;
-width:280px;
-box-shadow:0 4px 12px rgba(0,0,0,0.4);
+  background:linear-gradient(180deg,#17181b,#1f2024);
+  padding:24px;
+  border-radius:20px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.4);
+  border:1px solid #2b2d33;
 }
-
 .card img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:12px;
-margin-bottom:15px;
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  border-radius:14px;
+  margin-bottom:15px;
 }
-
 .card h3{
-margin:10px 0;
-font-size:24px;
+  margin:0 0 10px 0;
+  font-size:24px;
 }
-
 .card p{
-font-size:16px;
-color:#ddd;
+  margin:0;
+  color:#d0d0d5;
+  line-height:1.6;
 }
-
-button{
-background:#ff5a00;
-color:white;
-border:none;
-padding:16px 30px;
-font-size:18px;
-border-radius:10px;
-cursor:pointer;
-margin:10px;
-}
-
-a{
-text-decoration:none;
-color:white;
+@media(max-width:700px){
+  .nav{flex-direction:column;gap:12px}
+  .hero h1{font-size:38px}
 }
 </style>
 </head>
 <body>
 
 <div class="nav">
-  <a href="index.html">Home</a>
-  <a href="chefs.html">Find a Chef</a>
-  <a href="become-a-chef.html">Become a Chef</a>
+  <div class="brand">ChefHaus</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="chefs.html">Find a Chef</a>
+    <a href="become-a-chef.html">Become a Chef</a>
+  </div>
 </div>
 
 <div class="hero">
-  <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Aisha Rahman">
+  <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80" alt="Aisha Rahman">
   <h1>Aisha Rahman</h1>
   <p>Modern Middle Eastern Chef known for beautiful shared plates, bold flavour, and premium at-home dining experiences.</p>
-  <p><strong>Rating:</strong> ★ 4.8 | <strong>Price:</strong> $240 per booking</p>
-  <a href="booking-aisha.html"><button>Book Aisha</button></a>
+  <p><strong>Rating:</strong> ★ 4.8 &nbsp;|&nbsp; <strong>From:</strong> Sydney &nbsp;|&nbsp; <strong>Price:</strong> $120 per guest</p>
+  <a class="cta" href="booking-aisha.html">Book Aisha</a>
 </div>
 
 <div class="section">
-  <h2>Customer Reviews</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>⭐ 4.9</h3>
-      <p>"Aisha made our family dinner feel like a luxury restaurant experience."</p>
-      <p><strong>— Layla, Sydney</strong></p>
-    </div>
-
-    <div class="card">
-      <h3>⭐ 4.8</h3>
-      <p>"The shared plates were stunning and every guest was impressed."</p>
-      <p><strong>— Adam, Melbourne</strong></p>
-    </div>
-
-    <div class="card">
-      <h3>⭐ 5.0</h3>
-      <p>"Perfect for our celebration dinner. Beautiful food and amazing flavour."</p>
-      <p><strong>— Nadia, Brisbane</strong></p>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Sample Menu</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80" alt="Mezze Plates">
-      <h3>Mezze Plates</h3>
-      <p>Shared starters full of colour, flavour, and texture.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=800&q=80" alt="Grilled Specials">
-      <h3>Grilled Specials</h3>
-      <p>Charcoal-style meats and mains perfect for gatherings.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=800&q=80" alt="Sweet Finish">
-      <h3>Sweet Finish</h3>
-      <p>Elegant desserts inspired by Middle Eastern flavours.</p>
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
+  <h2>Customer Reviews</
