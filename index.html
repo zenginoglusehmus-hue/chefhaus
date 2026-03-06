@@ -2,177 +2,386 @@
 <html>
 <head>
 <title>ChefHaus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+:root{
+  --bg:#0f0f10;
+  --panel:#17181b;
+  --panel-2:#1f2024;
+  --text:#ffffff;
+  --muted:#c8c8cc;
+  --accent:#ff6a00;
+  --accent-2:#ff9d57;
+  --border:#2b2d33;
+  --shadow:0 10px 30px rgba(0,0,0,0.45);
+}
+
+*{box-sizing:border-box}
 body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#111;
-color:white;
-text-align:center;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
 .nav{
-background:#000;
-padding:18px 20px;
-display:flex;
-justify-content:center;
-gap:30px;
-position:sticky;
-top:0;
-z-index:1000;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 22px;
+  background:rgba(10,10,10,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.brand{
+  font-size:24px;
+  font-weight:700;
+  letter-spacing:0.5px;
+}
+
+.nav-links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
 .nav a{
-color:white;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;
+  color:white;
+  text-decoration:none;
+  font-size:16px;
+  font-weight:bold;
 }
 
 .hero{
-background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-padding:120px 20px;
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.65)),
+    url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1800&q=80');
+  background-size:cover;
+  background-position:center;
+}
+
+.hero-card{
+  max-width:980px;
+  width:100%;
+  background:rgba(18,18,20,0.72);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  padding:40px 24px;
+  text-align:center;
+}
+
+.eyebrow{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,106,0,0.12);
+  border:1px solid rgba(255,106,0,0.35);
+  color:#ffd1b3;
+  font-weight:bold;
+  font-size:13px;
+  margin-bottom:18px;
 }
 
 .hero h1{
-font-size:54px;
-margin-bottom:10px;
-text-shadow:2px 2px 8px rgba(0,0,0,0.7);
+  font-size:56px;
+  line-height:1.05;
+  margin:0 0 14px 0;
 }
 
 .hero p{
-font-size:22px;
-max-width:700px;
-margin:0 auto 30px auto;
-text-shadow:2px 2px 8px rgba(0,0,0,0.7);
+  max-width:760px;
+  margin:0 auto 30px auto;
+  font-size:21px;
+  color:#e7e7ea;
+  line-height:1.6;
 }
 
-button{
-background:#ff5a00;
-color:white;
-border:none;
-padding:16px 32px;
-font-size:18px;
-border-radius:10px;
-cursor:pointer;
-margin:10px;
+.button-row{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:10px;
 }
 
-a{
-text-decoration:none;
+.btn{
+  display:inline-block;
+  padding:16px 26px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:17px;
+  border:none;
+  cursor:pointer;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:white;
+  box-shadow:0 0 22px rgba(255,106,0,0.28);
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,0.08);
+  color:white;
+  border:1px solid rgba(255,255,255,0.14);
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;
+  margin-top:28px;
+}
+
+.stat{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:18px;
+}
+
+.stat h3{
+  margin:0;
+  font-size:28px;
+}
+
+.stat p{
+  margin:8px 0 0 0;
+  font-size:14px;
+  color:#d8d8dc;
 }
 
 .section{
-padding:60px 20px;
+  padding:74px 20px;
 }
 
-.cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-margin-top:40px;
+.container{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.section-title{
+  font-size:40px;
+  text-align:center;
+  margin:0 0 14px 0;
+}
+
+.section-sub{
+  text-align:center;
+  color:var(--muted);
+  max-width:760px;
+  margin:0 auto 34px auto;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
 }
 
 .card{
-background:#1c1c1c;
-padding:25px;
-border-radius:14px;
-width:280px;
-box-shadow:0 4px 12px rgba(0,0,0,0.4);
+  background:linear-gradient(180deg, var(--panel), var(--panel-2));
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
 }
 
 .card img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:12px;
-margin-bottom:15px;
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  display:block;
+}
+
+.card-content{
+  padding:22px;
 }
 
 .card h3{
-margin:10px 0;
-font-size:24px;
+  margin:0 0 10px 0;
+  font-size:24px;
 }
 
 .card p{
-font-size:16px;
-color:#ddd;
+  margin:0;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.feature-band{
+  background:linear-gradient(135deg,#171717,#0b0b0c);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+
+.feature{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;
+  padding:22px;
+}
+
+.feature h3{
+  margin:0 0 10px 0;
+  font-size:22px;
+}
+
+.feature p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.6;
 }
 
 .footer{
-padding:30px;
-background:#000;
-font-size:14px;
-color:#aaa;
+  padding:26px 20px;
+  border-top:1px solid var(--border);
+  text-align:center;
+  color:#b4b4b8;
+  font-size:14px;
+}
+
+@media(max-width:700px){
+  .nav{
+    flex-direction:column;
+    gap:12px;
+  }
+  .hero h1{
+    font-size:40px;
+  }
+  .hero p{
+    font-size:18px;
+  }
+  .section-title{
+    font-size:32px;
+  }
 }
 </style>
 </head>
 <body>
 
 <div class="nav">
-  <a href="index.html">Home</a>
-  <a href="chefs.html">Find a Chef</a>
-  <a href="become-a-chef.html">Become a Chef</a>
+  <div class="brand">ChefHaus</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="chefs.html">Find a Chef</a>
+    <a href="become-a-chef.html">Become a Chef</a>
+  </div>
 </div>
 
-<div class="hero">
-<h1>ChefHaus</h1>
-<p>Book a professional private chef to cook in your home for date nights, family dinners, birthdays and special occasions.</p>
-<a href="chefs.html"><button>Find a Chef</button></a>
-<a href="become-a-chef.html"><button>Become a Chef</button></a>
-</div>
+<section class="hero">
+  <div class="hero-card">
+    <div class="eyebrow">Private dining, reimagined</div>
+    <h1>Luxury chef experiences, brought to your home.</h1>
+    <p>ChefHaus connects customers with premium private chefs for date nights, birthdays, family dinners, and unforgettable at-home dining experiences.</p>
 
-<div class="section">
-<h2>How It Works</h2>
-<div class="cards">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80">
-<h3>1. Choose a Chef</h3>
-<p>Browse chefs by cuisine, style and experience.</p>
-</div>
+    <div class="button-row">
+      <a class="btn btn-primary" href="chefs.html">Find a Chef</a>
+      <a class="btn btn-secondary" href="become-a-chef.html">Become a Chef</a>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80">
-<h3>2. Pick Your Date</h3>
-<p>Select the day that works best for your home dining experience.</p>
-</div>
+    <div class="stats">
+      <div class="stat">
+        <h3>4.8★</h3>
+        <p>Average customer rating</p>
+      </div>
+      <div class="stat">
+        <h3>100+</h3>
+        <p>Chef experiences created</p>
+      </div>
+      <div class="stat">
+        <h3>3 Cities</h3>
+        <p>Melbourne, Sydney, Brisbane</p>
+      </div>
+      <div class="stat">
+        <h3>Premium</h3>
+        <p>Food, service, and presentation</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80">
-<h3>3. Enjoy at Home</h3>
-<p>Your chef comes to you, cooks, and creates a restaurant experience.</p>
-</div>
-</div>
-</div>
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">How it works</h2>
+    <p class="section-sub">A simple premium booking flow that helps customers find the right chef and creates a memorable in-home dining experience.</p>
 
-<div class="section">
-<h2>Why People Love ChefHaus</h2>
-<div class="cards">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80">
-<h3>Luxury Dining</h3>
-<p>Bring restaurant-quality meals into your home.</p>
-</div>
+    <div class="grid-3">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1000&q=80" alt="Choose a chef">
+        <div class="card-content">
+          <h3>1. Choose a Chef</h3>
+          <p>Browse chefs by city, cuisine, style, and experience to find the perfect match for your dinner or event.</p>
+        </div>
+      </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80">
-<h3>Perfect for Events</h3>
-<p>Great for birthdays, family dinners and celebrations.</p>
-</div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Pick a date">
+        <div class="card-content">
+          <h3>2. Pick Your Date</h3>
+          <p>Select your preferred date and guest count, then submit your request directly through the booking page.</p>
+        </div>
+      </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80">
-<h3>Professional Chefs</h3>
-<p>Choose from talented chefs with different specialties.</p>
-</div>
-</div>
-</div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80" alt="Enjoy at home">
+        <div class="card-content">
+          <h3>3. Enjoy at Home</h3>
+          <p>Your chef brings the experience to you with premium food, service, and presentation in your own space.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section feature-band">
+  <div class="container">
+    <h2 class="section-title">Why people love ChefHaus</h2>
+    <p class="section-sub">Built for customers who want more than just dinner. This is hospitality, convenience, and atmosphere in one booking.</p>
+
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Luxury at Home</h3>
+        <p>Bring the feeling of a premium restaurant into your own home without the crowds or stress.</p>
+      </div>
+      <div class="feature">
+        <h3>Perfect for Events</h3>
+        <p>Ideal for birthdays, anniversaries, private dinners, and intimate celebrations with friends and family.</p>
+      </div>
+      <div class="feature">
+        <h3>Trusted Chefs</h3>
+        <p>Each chef profile highlights cuisine, reviews, pricing, and experience so customers can book with confidence.</p>
+      </div>
+      <div class="feature">
+        <h3>Fast Booking Flow</h3>
+        <p>Simple pages, city filtering, chef profiles, and direct booking forms that send requests straight to your inbox.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="footer">
-ChefHaus © 2026 — Private chefs to your home
+  ChefHaus © 2026 — Premium private chefs to your home
 </div>
 
 </body>
