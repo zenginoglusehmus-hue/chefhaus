@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Aisha Rahman - ChefHaus</title>
+<title>Book Aisha Rahman - ChefHaus</title>
 <style>
 body{
 margin:0;
@@ -9,6 +9,10 @@ font-family:Arial, sans-serif;
 background:#111;
 color:white;
 text-align:center;
+background-image:url('https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 }
 
 .nav{
@@ -29,67 +33,57 @@ font-size:18px;
 font-weight:bold;
 }
 
-.hero{
-padding:60px 20px;
-background:#000;
+.overlay{
+background:rgba(0,0,0,0.8);
+min-height:100vh;
+padding:50px 20px 80px 20px;
 }
 
 .hero img{
-width:220px;
-height:220px;
-object-fit:cover;
+width:140px;
+height:140px;
 border-radius:50%;
-border:5px solid #ff5a00;
+object-fit:cover;
+border:4px solid #ff5a00;
+box-shadow:0 0 20px rgba(255,90,0,0.4);
 margin-bottom:20px;
 }
 
 .hero h1{
-font-size:44px;
+font-size:42px;
 margin:10px 0;
 }
 
 .hero p{
-font-size:20px;
+font-size:18px;
 color:#ddd;
-max-width:700px;
-margin:0 auto 20px auto;
+max-width:600px;
+margin:0 auto;
 }
 
-.section{
-padding:50px 20px;
+form{
+background:rgba(20,20,20,0.95);
+max-width:520px;
+margin:30px auto 0 auto;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,0.5);
 }
 
-.cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
-
-.card{
-background:#1c1c1c;
-padding:25px;
-border-radius:14px;
-width:280px;
-box-shadow:0 4px 12px rgba(0,0,0,0.4);
-}
-
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:12px;
-margin-bottom:15px;
-}
-
-.card h3{
+input, textarea{
+width:90%;
+padding:14px;
 margin:10px 0;
-font-size:24px;
+border:none;
+border-radius:10px;
+font-size:16px;
+background:#2a2a2a;
+color:white;
 }
 
-.card p{
-font-size:16px;
-color:#ddd;
+textarea{
+min-height:120px;
+resize:vertical;
 }
 
 button{
@@ -100,12 +94,8 @@ padding:16px 30px;
 font-size:18px;
 border-radius:10px;
 cursor:pointer;
-margin:10px;
-}
-
-a{
-text-decoration:none;
-color:white;
+margin-top:15px;
+box-shadow:0 0 15px rgba(255,90,0,0.35);
 }
 </style>
 </head>
@@ -117,58 +107,26 @@ color:white;
   <a href="become-a-chef.html">Become a Chef</a>
 </div>
 
-<div class="hero">
-  <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Aisha Rahman">
-  <h1>Aisha Rahman</h1>
-  <p>Modern Middle Eastern Chef known for beautiful shared plates, bold flavour, and premium at-home dining experiences.</p>
-  <p><strong>Rating:</strong> ★ 4.8 | <strong>Price:</strong> $240 per booking</p>
-  <a href="booking-aisha.html"><button>Book Aisha</button></a>
-</div>
-
-<div class="section">
-  <h2>Customer Reviews</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>⭐ 4.9</h3>
-      <p>"Aisha made our family dinner feel like a luxury restaurant experience."</p>
-      <p><strong>— Layla, Sydney</strong></p>
-    </div>
-
-    <div class="card">
-      <h3>⭐ 4.8</h3>
-      <p>"The shared plates were stunning and every guest was impressed."</p>
-      <p><strong>— Adam, Melbourne</strong></p>
-    </div>
-
-    <div class="card">
-      <h3>⭐ 5.0</h3>
-      <p>"Perfect for our celebration dinner. Beautiful food and amazing flavour."</p>
-      <p><strong>— Nadia, Brisbane</strong></p>
-    </div>
+<div class="overlay">
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Aisha Rahman">
+    <h1>Book Aisha Rahman</h1>
+    <p>Modern Middle Eastern Chef — bold flavours and elegant shared dining.</p>
   </div>
-</div>
 
-<div class="section">
-  <h2>Sample Menu</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80" alt="Mezze Plates">
-      <h3>Mezze Plates</h3>
-      <p>Shared starters full of colour, flavour, and texture.</p>
-    </div>
+  <form action="https://formspree.io/f/xreygzbj" method="POST">
+    <input type="hidden" name="chef" value="Aisha Rahman">
+    <input type="hidden" name="_subject" value="New ChefHaus Booking Request - Aisha Rahman">
+    <input type="hidden" name="_captcha" value="false">
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=800&q=80" alt="Grilled Specials">
-      <h3>Grilled Specials</h3>
-      <p>Charcoal-style meats and mains perfect for gatherings.</p>
-    </div>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="date" name="date" required>
+    <input type="number" name="guests" placeholder="Number of Guests" required>
+    <textarea name="requests" placeholder="Special Requests"></textarea>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=800&q=80" alt="Sweet Finish">
-      <h3>Sweet Finish</h3>
-      <p>Elegant desserts inspired by Middle Eastern flavours.</p>
-    </div>
-  </div>
+    <button type="submit">Request Booking</button>
+  </form>
 </div>
 
 </body>
