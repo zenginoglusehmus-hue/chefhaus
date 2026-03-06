@@ -4,61 +4,175 @@
 <title>Become a Chef - ChefHaus</title>
 <style>
 body{
-font-family:Arial;
+margin:0;
+font-family:Arial, sans-serif;
 background:#111;
 color:white;
 text-align:center;
-padding:60px;
+background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 }
-h1{
-font-size:42px;
+
+.overlay{
+background:rgba(0,0,0,0.78);
+min-height:100vh;
+padding:50px 20px 80px 20px;
 }
+
+.hero{
+max-width:800px;
+margin:0 auto 30px auto;
+}
+
+.hero h1{
+font-size:46px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:19px;
+color:#ddd;
+line-height:1.6;
+}
+
+.benefits{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+margin:35px auto 10px auto;
+max-width:1000px;
+}
+
+.benefit{
+background:rgba(28,28,28,0.95);
+padding:22px;
+border-radius:16px;
+width:260px;
+box-shadow:0 6px 18px rgba(0,0,0,0.35);
+}
+
+.benefit h3{
+margin:0 0 10px 0;
+font-size:22px;
+}
+
+.benefit p{
+margin:0;
+font-size:15px;
+color:#ddd;
+line-height:1.5;
+}
+
 form{
-background:#1a1a1a;
-max-width:500px;
-margin:30px auto;
-padding:30px;
-border-radius:12px;
+background:rgba(20,20,20,0.96);
+max-width:560px;
+margin:40px auto 0 auto;
+padding:32px;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,0.45);
 }
+
+form h2{
+margin-top:0;
+font-size:30px;
+}
+
+form p{
+color:#ccc;
+margin-bottom:20px;
+}
+
 input, textarea{
 width:90%;
-padding:12px;
+padding:14px;
 margin:10px 0;
 border:none;
-border-radius:8px;
+border-radius:10px;
 font-size:16px;
+background:#2a2a2a;
+color:white;
 }
+
+textarea{
+min-height:120px;
+resize:vertical;
+}
+
 button{
 background:#ff5a00;
 color:white;
 border:none;
-padding:14px 28px;
-font-size:16px;
+padding:16px 30px;
+font-size:18px;
 border-radius:10px;
 cursor:pointer;
-margin-top:10px;
+margin-top:15px;
+box-shadow:0 0 15px rgba(255,90,0,0.35);
 }
+
 a{
-color:white;
 text-decoration:none;
+color:white;
+}
+
+.back{
+margin-top:30px;
+font-size:18px;
 }
 </style>
 </head>
 <body>
 
-<h1>Become a Chef</h1>
-<p>Apply to join ChefHaus.</p>
+<div class="overlay">
 
-<form>
-<input type="text" placeholder="Your name">
-<input type="email" placeholder="Your email">
-<input type="text" placeholder="Cuisine specialty">
-<input type="text" placeholder="Years of experience">
-<textarea placeholder="Tell us about your qualifications"></textarea>
-<button type="submit">Apply Now</button>
-</form>
+  <div class="hero">
+    <h1>Become a Chef on ChefHaus</h1>
+    <p>Join our private chef platform and bring premium in-home dining experiences to customers looking for unforgettable food, hospitality, and service.</p>
+  </div>
 
-<p><a href="index.html">← Back to Home</a></p>
+  <div class="benefits">
+    <div class="benefit">
+      <h3>More Bookings</h3>
+      <p>Get discovered by customers searching for private chefs for dinners, parties, and special events.</p>
+    </div>
+
+    <div class="benefit">
+      <h3>Build Your Brand</h3>
+      <p>Create your own chef profile, showcase your style, and stand out with menus, photos, and reviews.</p>
+    </div>
+
+    <div class="benefit">
+      <h3>Grow Your Income</h3>
+      <p>Turn your culinary skills into a premium service business with direct booking opportunities.</p>
+    </div>
+  </div>
+
+  <form action="https://formspree.io/f/xreygzbj" method="POST">
+    <h2>Chef Application</h2>
+    <p>Tell us about yourself and we’ll review your application.</p>
+
+    <input type="hidden" name="_subject" value="New ChefHaus Chef Application">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="application_type" value="Chef Application">
+
+    <input type="text" name="chef_name" placeholder="Your Full Name" required>
+    <input type="email" name="chef_email" placeholder="Email Address" required>
+    <input type="text" name="chef_phone" placeholder="Phone Number" required>
+    <input type="text" name="cuisine" placeholder="Cuisine Specialty" required>
+    <input type="text" name="experience" placeholder="Years of Experience" required>
+    <textarea name="qualifications" placeholder="Tell us about your qualifications, training, certificates, and experience"></textarea>
+
+    <button type="submit">Apply Now</button>
+  </form>
+
+  <div class="back">
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+</div>
 
 </body>
 </html>
