@@ -30,7 +30,7 @@ font-weight:bold;
 }
 
 .header{
-padding:50px 20px 30px 20px;
+padding:50px 20px 20px 20px;
 background:#000;
 }
 
@@ -42,6 +42,31 @@ margin-bottom:10px;
 .header p{
 font-size:20px;
 color:#ddd;
+max-width:700px;
+margin:0 auto;
+}
+
+.filters{
+padding:25px 20px 10px 20px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+}
+
+.filter-btn{
+background:#1f1f1f;
+color:white;
+border:1px solid #333;
+padding:12px 20px;
+font-size:16px;
+border-radius:999px;
+cursor:pointer;
+}
+
+.filter-btn.active{
+background:#ff5a00;
+border-color:#ff5a00;
 }
 
 .chefs{
@@ -49,37 +74,67 @@ display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:25px;
-padding:50px 20px;
+padding:40px 20px 60px 20px;
 }
 
 .card{
 background:#1c1c1c;
-border-radius:14px;
-width:300px;
+border-radius:18px;
+width:320px;
 overflow:hidden;
-box-shadow:0 4px 12px rgba(0,0,0,0.4);
+box-shadow:0 8px 20px rgba(0,0,0,0.45);
 text-align:left;
 }
 
 .card img{
 width:100%;
-height:220px;
+height:230px;
 object-fit:cover;
 }
 
 .card-content{
-padding:20px;
+padding:22px;
+}
+
+.badge-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
+gap:10px;
+}
+
+.badge{
+display:inline-block;
+background:#2a2a2a;
+color:#fff;
+padding:6px 12px;
+border-radius:999px;
+font-size:13px;
+font-weight:bold;
+}
+
+.featured{
+background:#ff5a00;
 }
 
 .card h2{
 margin:0 0 10px 0;
-font-size:26px;
+font-size:30px;
 }
 
 .card p{
 margin:8px 0;
 color:#ddd;
 font-size:16px;
+line-height:1.5;
+}
+
+.price{
+font-size:18px;
+font-weight:bold;
+color:#fff;
+margin-top:10px;
 }
 
 button{
@@ -88,15 +143,19 @@ color:white;
 border:none;
 padding:14px 24px;
 font-size:16px;
-border-radius:10px;
+border-radius:12px;
 cursor:pointer;
-margin-top:15px;
+margin-top:18px;
 width:100%;
 }
 
 a{
 text-decoration:none;
 color:white;
+}
+
+.hidden{
+display:none;
 }
 </style>
 </head>
@@ -110,43 +169,75 @@ color:white;
 
 <div class="header">
   <h1>Find a Chef</h1>
-  <p>Choose your perfect private chef for a premium home dining experience.</p>
+  <p>Browse private chefs by city, cuisine, and style to find the perfect in-home dining experience.</p>
+</div>
+
+<div class="filters">
+  <button class="filter-btn active" onclick="filterCity('all', this)">All</button>
+  <button class="filter-btn" onclick="filterCity('melbourne', this)">Melbourne</button>
+  <button class="filter-btn" onclick="filterCity('sydney', this)">Sydney</button>
+  <button class="filter-btn" onclick="filterCity('brisbane', this)">Brisbane</button>
 </div>
 
 <div class="chefs">
-  <div class="card">
+
+  <div class="card chef-card" data-city="melbourne">
     <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80" alt="Marco Rossi">
     <div class="card-content">
+      <div class="badge-row">
+        <span class="badge featured">Featured</span>
+        <span class="badge">Melbourne</span>
+      </div>
       <h2>Marco Rossi</h2>
       <p><strong>Specialty:</strong> Italian Fine Dining</p>
-      <p><strong>Price:</strong> $220 per booking</p>
+      <p><strong>Rating:</strong> ★ 4.9</p>
       <p><strong>Experience:</strong> 12 years</p>
+      <p class="price">$220 per booking</p>
       <a href="marco.html"><button>View Marco</button></a>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card chef-card" data-city="sydney">
     <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Aisha Rahman">
     <div class="card-content">
+      <div class="badge-row">
+        <span class="badge featured">Popular</span>
+        <span class="badge">Sydney</span>
+      </div>
       <h2>Aisha Rahman</h2>
       <p><strong>Specialty:</strong> Modern Middle Eastern</p>
-      <p><strong>Price:</strong> $240 per booking</p>
+      <p><strong>Rating:</strong> ★ 4.8</p>
       <p><strong>Experience:</strong> 10 years</p>
+      <p class="price">$240 per booking</p>
       <a href="aisha.html"><button>View Aisha</button></a>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card chef-card" data-city="brisbane">
     <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Daniel Wu">
     <div class="card-content">
+      <div class="badge-row">
+        <span class="badge">New</span>
+        <span class="badge">Brisbane</span>
+      </div>
       <h2>Daniel Wu</h2>
       <p><strong>Specialty:</strong> Asian Fusion</p>
-      <p><strong>Price:</strong> $210 per booking</p>
+      <p><strong>Rating:</strong> ★ 4.7</p>
       <p><strong>Experience:</strong> 8 years</p>
+      <p class="price">$210 per booking</p>
       <a href="daniel.html"><button>View Daniel</button></a>
     </div>
   </div>
+
 </div>
 
-</body>
-</html>
+<script>
+function filterCity(city, button) {
+  const cards = document.querySelectorAll('.chef-card');
+  const buttons = document.querySelectorAll('.filter-btn');
+
+  buttons.forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+
+  cards.forEach(card => {
+    if (city === 'all' || card.getAttribute('
