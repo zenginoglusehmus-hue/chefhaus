@@ -1,68 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Find a Chef - ChefHaus</title>
+<title>Book a Chef - ChefHaus</title>
+
 <style>
+
 body{
-font-family:Arial;
+font-family: Arial;
 background:#111;
 color:white;
 text-align:center;
 padding:60px;
 }
+
 h1{
-font-size:42px;
+font-size:40px;
+margin-bottom:20px;
 }
-.card{
+
+form{
 background:#1a1a1a;
-margin:20px auto;
-padding:25px;
-border-radius:12px;
 max-width:500px;
+margin:auto;
+padding:30px;
+border-radius:12px;
 }
+
+input, textarea{
+width:90%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+font-size:16px;
+}
+
 button{
 background:#ff5a00;
 color:white;
 border:none;
-padding:12px 25px;
+padding:14px 28px;
 font-size:16px;
 border-radius:10px;
 cursor:pointer;
 margin-top:10px;
 }
+
 a{
 color:white;
 text-decoration:none;
 }
+
 </style>
+
 </head>
+
 <body>
 
-<h1>Find a Chef</h1>
-<p>Choose a chef for your home experience.</p>
+<h1>Book Your Chef</h1>
 
-<div class="card">
-<h2>Marco Rossi</h2>
-<p>Italian Fine Dining</p>
-<p>$220 per booking</p>
-<a href="booking.html"><button>Book Marco</button></a>
-</div>
+<form action="https://formspree.io/f/xreygzbj" method="POST">
 
-<div class="card">
-<h2>Aisha Rahman</h2>
-<p>Modern Middle Eastern</p>
-<p>$240 per booking</p>
-<button>Book Aisha</button>
-</div>
+<input type="text" name="name" placeholder="Your Name" required>
 
-<div class="card">
-<h2>Daniel Wu</h2>
-<p>Asian Fusion</p>
-<p>$210 per booking</p>
-<button>Book Daniel</button>
-</div>
+<input type="email" name="email" placeholder="Email Address" required>
 
-<p><a href="index.html">← Back to Home</a></p>
+<input type="date" name="date" required>
+
+<input type="number" name="guests" placeholder="Number of Guests" required>
+
+<textarea name="requests" placeholder="Special Requests"></textarea>
+
+<input type="hidden" name="_subject" value="New ChefHaus Booking Request">
+
+<input type="hidden" name="_captcha" value="false">
+
+<button type="submit">Request Booking</button>
+
+</form>
+
+<p style="margin-top:30px;">
+<a href="index.html">← Back to Home</a>
+</p>
 
 </body>
 </html>
