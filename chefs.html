@@ -20,7 +20,7 @@ padding:25px;
 border-radius:12px;
 max-width:500px;
 }
-button{
+button, .btn{
 background:#ff5a00;
 color:white;
 border:none;
@@ -29,6 +29,7 @@ font-size:16px;
 border-radius:10px;
 cursor:pointer;
 margin-top:10px;
+display:inline-block;
 }
 a{
 color:white;
@@ -45,21 +46,21 @@ text-decoration:none;
 <h2>Marco Rossi</h2>
 <p>Italian Fine Dining</p>
 <p>$220 per booking</p>
-<a href="booking.html"><button>Book Marco</button></a>
+<a href="booking.html?chef=Marco+Rossi" class="btn">Book Marco</a>
 </div>
 
 <div class="card">
 <h2>Aisha Rahman</h2>
 <p>Modern Middle Eastern</p>
 <p>$240 per booking</p>
-<button>Book Aisha</button>
+<a href="booking.html?chef=Aisha+Rahman" class="btn">Book Aisha</a>
 </div>
 
 <div class="card">
 <h2>Daniel Wu</h2>
 <p>Asian Fusion</p>
 <p>$210 per booking</p>
-<button>Book Daniel</button>
+<a href="booking.html?chef=Daniel+Wu" class="btn">Book Daniel</a>
 </div>
 
 <p><a href="index.html">← Back to Home</a></p>

@@ -51,6 +51,8 @@ text-decoration:none;
 
 <h1>Book Your Chef</h1>
 
+<p id="chef-name"></p>
+
 <form>
 
 <input type="text" placeholder="Your Name">
@@ -67,7 +69,15 @@ text-decoration:none;
 
 </form>
 
-<p><a href="index.html">Back to Home</a></p>
+<p><a href="chefs.html">← Back to Chefs</a></p>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const chef = params.get('chef');
+if (chef) {
+  document.getElementById('chef-name').textContent = `Chef: ${chef}`;
+}
+</script>
 
 </body>
 </html>
