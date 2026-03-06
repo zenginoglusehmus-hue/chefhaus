@@ -1,256 +1,334 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Find a Chef - ChefHaus</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-:root{
-  --bg:#0f0f10;
-  --panel:#17181b;
-  --panel-2:#1f2024;
-  --text:#ffffff;
-  --muted:#c8c8cc;
-  --accent:#ff6a00;
-  --accent-2:#ff9d57;
-  --border:#2b2d33;
-  --shadow:0 10px 30px rgba(0,0,0,0.45);
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--bg);
-  color:white;
-}
-.nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 22px;
-  background:rgba(10,10,10,0.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,0.06);
-}
-.brand{font-size:24px;font-weight:700}
-.nav-links{display:flex;gap:18px;flex-wrap:wrap}
-.nav a{color:white;text-decoration:none;font-size:16px;font-weight:bold}
-.header{
-  padding:70px 20px 30px 20px;
-  text-align:center;
-  background:
-    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.85)),
-    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=80');
-  background-size:cover;
-  background-position:center;
-}
-.header h1{
-  font-size:52px;
-  margin:0 0 12px 0;
-}
-.header p{
-  max-width:760px;
-  margin:0 auto;
-  color:#dfdfe3;
-  font-size:19px;
-  line-height:1.6;
-}
-.filters{
-  padding:26px 20px 10px 20px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:12px;
-}
-.filter-btn{
-  background:#1f1f1f;
-  color:white;
-  border:1px solid #333;
-  padding:12px 20px;
-  font-size:16px;
-  border-radius:999px;
-  cursor:pointer;
-}
-.filter-btn.active{
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  border-color:transparent;
-}
-.wrap{
-  max-width:1180px;
-  margin:0 auto;
-  padding:20px 20px 70px 20px;
-}
-.chefs{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
-  gap:26px;
-}
-.card{
-  background:linear-gradient(180deg,var(--panel),var(--panel-2));
-  border:1px solid var(--border);
-  border-radius:24px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-}
-.card img{
-  width:100%;
-  height:250px;
-  object-fit:cover;
-  display:block;
-}
-.card-content{
-  padding:22px;
-}
-.badge-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-bottom:12px;
-}
-.badge{
-  display:inline-block;
-  background:#2a2a2f;
-  color:#fff;
-  padding:7px 12px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:bold;
-}
-.featured{
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-}
-.card h2{
-  margin:0 0 10px 0;
-  font-size:30px;
-}
-.card p{
-  margin:8px 0;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.5;
-}
-.price{
-  font-size:20px;
-  font-weight:bold;
-  color:white;
-  margin-top:14px;
-}
-.btn{
-  display:block;
-  width:100%;
-  margin-top:18px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  color:white;
-  text-align:center;
-  padding:15px 20px;
-  border-radius:14px;
-  text-decoration:none;
-  font-weight:bold;
-}
-.hidden{display:none}
-@media(max-width:700px){
-  .nav{flex-direction:column;gap:12px}
-  .header h1{font-size:40px}
-}
-</style>
+  <title>Find a Chef - ChefHaus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:Arial, sans-serif;
+      background:#0d0d0f;
+      color:white;
+    }
+
+    .topbar{
+      background:#0a0a0a;
+      padding:18px 16px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      margin-bottom:16px;
+    }
+
+    .brand img{
+      width:52px;
+      height:52px;
+      object-fit:contain;
+      border-radius:12px;
+    }
+
+    .brand-name{
+      font-size:34px;
+      font-weight:700;
+      letter-spacing:0.5px;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      color:#f2f2f2;
+      text-decoration:none;
+      font-size:15px;
+      font-weight:600;
+    }
+
+    .hero{
+      padding:58px 18px 28px;
+      text-align:center;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.78)),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80");
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero h1{
+      font-size:48px;
+      margin-bottom:14px;
+    }
+
+    .hero p{
+      max-width:760px;
+      margin:0 auto;
+      color:#d7d7d7;
+      font-size:18px;
+      line-height:1.5;
+    }
+
+    .filters{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+      padding:24px 18px 8px;
+    }
+
+    .filter-btn{
+      border:none;
+      padding:12px 18px;
+      border-radius:999px;
+      background:#18181b;
+      color:white;
+      font-size:15px;
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .filter-btn.active{
+      background:linear-gradient(135deg,#c92a1f,#ff5a2f);
+      box-shadow:0 0 18px rgba(255,90,47,0.18);
+    }
+
+    .wrap{
+      padding:28px 18px 70px;
+      max-width:1180px;
+      margin:0 auto;
+    }
+
+    .chefs{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+
+    .card{
+      background:#151518;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 8px 25px rgba(0,0,0,0.35);
+    }
+
+    .card img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-content{
+      padding:22px;
+    }
+
+    .badge-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:14px;
+      flex-wrap:wrap;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      background:#232326;
+      color:white;
+    }
+
+    .featured{
+      background:linear-gradient(135deg,#c92a1f,#ff5a2f);
+    }
+
+    .card h2{
+      font-size:34px;
+      margin-bottom:12px;
+    }
+
+    .card p{
+      color:#d0d0d0;
+      font-size:17px;
+      line-height:1.5;
+      margin:6px 0;
+    }
+
+    .price{
+      font-size:22px;
+      font-weight:700;
+      color:white;
+      margin-top:14px;
+    }
+
+    .btn{
+      display:block;
+      width:100%;
+      margin-top:18px;
+      text-align:center;
+      text-decoration:none;
+      background:linear-gradient(135deg,#c92a1f,#ff5a2f);
+      color:white;
+      padding:16px 20px;
+      border-radius:14px;
+      font-weight:700;
+      font-size:16px;
+    }
+
+    .hidden{
+      display:none;
+    }
+
+    .footer{
+      text-align:center;
+      padding:28px 18px;
+      color:#999;
+      border-top:1px solid rgba(255,255,255,0.06);
+      background:#0a0a0a;
+      font-size:14px;
+    }
+
+    @media(min-width:768px){
+      .brand{
+        justify-content:flex-start;
+        margin-bottom:0;
+      }
+
+      .topbar{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:18px 28px;
+      }
+
+      .hero h1{
+        font-size:62px;
+      }
+
+      .chefs{
+        grid-template-columns:repeat(3, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="nav">
-  <div class="brand">ChefHaus</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="chefs.html">Find a Chef</a>
-    <a href="become-a-chef.html">Become a Chef</a>
+  <div class="topbar">
+    <div class="brand">
+      <img src="logo.png" alt="ChefHaus Logo">
+      <div class="brand-name">ChefHaus</div>
+    </div>
+
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="chefs.html">Find a Chef</a>
+      <a href="become-a-chef.html">Become a Chef</a>
+    </div>
   </div>
-</div>
 
-<div class="header">
-  <h1>Find a Chef</h1>
-  <p>Browse private chefs by city, cuisine, style, and price to find the perfect in-home dining experience.</p>
-</div>
+  <section class="hero">
+    <h1>Find a Chef</h1>
+    <p>Explore premium private chefs by city, cuisine, and style to create an unforgettable dining experience in your home.</p>
+  </section>
 
-<div class="filters">
-  <button class="filter-btn active" onclick="filterCity('all', this)">All</button>
-  <button class="filter-btn" onclick="filterCity('melbourne', this)">Melbourne</button>
-  <button class="filter-btn" onclick="filterCity('sydney', this)">Sydney</button>
-  <button class="filter-btn" onclick="filterCity('brisbane', this)">Brisbane</button>
-</div>
-
-<div class="wrap">
-  <div class="chefs">
-
-    <div class="card chef-card" data-city="melbourne">
-      <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=900&q=80" alt="Marco Rossi">
-      <div class="card-content">
-        <div class="badge-row">
-          <span class="badge featured">Featured</span>
-          <span class="badge">Melbourne</span>
-        </div>
-        <h2>Marco Rossi</h2>
-        <p><strong>Specialty:</strong> Italian Fine Dining</p>
-        <p><strong>Rating:</strong> ★ 4.9</p>
-        <p><strong>Experience:</strong> 12 years</p>
-        <div class="price">$110 per guest</div>
-        <a class="btn" href="marco.html">View Marco</a>
-      </div>
-    </div>
-
-    <div class="card chef-card" data-city="sydney">
-      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80" alt="Aisha Rahman">
-      <div class="card-content">
-        <div class="badge-row">
-          <span class="badge featured">Popular</span>
-          <span class="badge">Sydney</span>
-        </div>
-        <h2>Aisha Rahman</h2>
-        <p><strong>Specialty:</strong> Modern Middle Eastern</p>
-        <p><strong>Rating:</strong> ★ 4.8</p>
-        <p><strong>Experience:</strong> 10 years</p>
-        <div class="price">$120 per guest</div>
-        <a class="btn" href="aisha.html">View Aisha</a>
-      </div>
-    </div>
-
-    <div class="card chef-card" data-city="brisbane">
-      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80" alt="Daniel Wu">
-      <div class="card-content">
-        <div class="badge-row">
-          <span class="badge">New</span>
-          <span class="badge">Brisbane</span>
-        </div>
-        <h2>Daniel Wu</h2>
-        <p><strong>Specialty:</strong> Asian Fusion</p>
-        <p><strong>Rating:</strong> ★ 4.7</p>
-        <p><strong>Experience:</strong> 8 years</p>
-        <div class="price">$105 per guest</div>
-        <a class="btn" href="daniel.html">View Daniel</a>
-      </div>
-    </div>
-
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterCity('all', this)">All</button>
+    <button class="filter-btn" onclick="filterCity('melbourne', this)">Melbourne</button>
+    <button class="filter-btn" onclick="filterCity('sydney', this)">Sydney</button>
+    <button class="filter-btn" onclick="filterCity('brisbane', this)">Brisbane</button>
   </div>
-</div>
 
-<script>
-function filterCity(city, button) {
-  const cards = document.querySelectorAll('.chef-card');
-  const buttons = document.querySelectorAll('.filter-btn');
+  <div class="wrap">
+    <div class="chefs">
 
-  buttons.forEach(btn => btn.classList.remove('active'));
-  button.classList.add('active');
+      <div class="card chef-card" data-city="melbourne">
+        <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=1000&q=80" alt="Marco Rossi">
+        <div class="card-content">
+          <div class="badge-row">
+            <span class="badge featured">Featured</span>
+            <span class="badge">Melbourne</span>
+          </div>
+          <h2>Marco Rossi</h2>
+          <p><strong>Specialty:</strong> Italian Fine Dining</p>
+          <p><strong>Rating:</strong> ★ 4.9</p>
+          <p><strong>Experience:</strong> 12 years</p>
+          <div class="price">$110 per guest</div>
+          <a class="btn" href="marco.html">View Marco</a>
+        </div>
+      </div>
 
-  cards.forEach(card => {
-    if (city === 'all' || card.getAttribute('data-city') === city) {
-      card.classList.remove('hidden');
-    } else {
-      card.classList.add('hidden');
+      <div class="card chef-card" data-city="sydney">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=80" alt="Aisha Rahman">
+        <div class="card-content">
+          <div class="badge-row">
+            <span class="badge featured">Popular</span>
+            <span class="badge">Sydney</span>
+          </div>
+          <h2>Aisha Rahman</h2>
+          <p><strong>Specialty:</strong> Modern Middle Eastern</p>
+          <p><strong>Rating:</strong> ★ 4.8</p>
+          <p><strong>Experience:</strong> 10 years</p>
+          <div class="price">$120 per guest</div>
+          <a class="btn" href="aisha.html">View Aisha</a>
+        </div>
+      </div>
+
+      <div class="card chef-card" data-city="brisbane">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80" alt="Daniel Wu">
+        <div class="card-content">
+          <div class="badge-row">
+            <span class="badge">New</span>
+            <span class="badge">Brisbane</span>
+          </div>
+          <h2>Daniel Wu</h2>
+          <p><strong>Specialty:</strong> Asian Fusion</p>
+          <p><strong>Rating:</strong> ★ 4.7</p>
+          <p><strong>Experience:</strong> 8 years</p>
+          <div class="price">$105 per guest</div>
+          <a class="btn" href="daniel.html">View Daniel</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    ChefHaus © 2026
+  </div>
+
+  <script>
+    function filterCity(city, button) {
+      const cards = document.querySelectorAll('.chef-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      cards.forEach(card => {
+        if (city === 'all' || card.getAttribute('data-city') === city) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
     }
-  });
-}
-</script>
+  </script>
 
 </body>
 </html>
