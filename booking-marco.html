@@ -1,168 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Book Marco Rossi - ChefHaus</title>
+
+<title>Book Marco Rossi</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-*{box-sizing:border-box}
+
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  color:white;
-  text-align:center;
-  background-image:url('https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1800&q=80');
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
+font-family:Arial;
+background:#0f0f10;
+color:white;
+margin:0;
 }
-.nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 22px;
-  background:rgba(10,10,10,0.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,0.06);
+
+.container{
+max-width:700px;
+margin:auto;
+padding:40px;
 }
-.brand{font-size:24px;font-weight:700}
-.nav-links{display:flex;gap:18px;flex-wrap:wrap}
-.nav a{color:white;text-decoration:none;font-size:16px;font-weight:bold}
-.overlay{
-  background:rgba(0,0,0,0.80);
-  min-height:100vh;
-  padding:50px 20px 80px 20px;
+
+h1{
+text-align:center;
+margin-bottom:30px;
 }
-.hero img{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid #ff6a00;
-  box-shadow:0 0 20px rgba(255,106,0,0.35);
-  margin-bottom:18px;
-}
-.hero h1{
-  font-size:42px;
-  margin:10px 0;
-}
-.hero p{
-  font-size:18px;
-  color:#ddd;
-  max-width:600px;
-  margin:0 auto;
-}
-.price-note{
-  margin-top:12px;
-  font-size:18px;
-  font-weight:bold;
-  color:#fff;
-}
+
 form{
-  background:rgba(20,20,20,0.95);
-  max-width:540px;
-  margin:30px auto 0 auto;
-  padding:30px;
-  border-radius:22px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.5);
-  border:1px solid rgba(255,255,255,0.06);
+display:flex;
+flex-direction:column;
+gap:15px;
 }
-input, textarea{
-  width:90%;
-  padding:14px;
-  margin:10px 0;
-  border:none;
-  border-radius:12px;
-  font-size:16px;
-  background:#2a2a2a;
-  color:white;
+
+input,textarea,select{
+padding:14px;
+border-radius:8px;
+border:none;
+font-size:16px;
 }
+
 textarea{
-  min-height:120px;
-  resize:vertical;
+min-height:100px;
 }
-.total-box{
-  margin:18px auto 6px auto;
-  padding:16px;
-  width:90%;
-  background:#1a1a1a;
-  border:1px solid #333;
-  border-radius:12px;
-  font-size:22px;
-  font-weight:bold;
-  color:#ffb38a;
-}
-.small-text{
-  font-size:14px;
-  color:#bbb;
-  margin-top:8px;
-}
+
 button{
-  background:linear-gradient(135deg,#ff6a00,#ff9d57);
-  color:white;
-  border:none;
-  padding:16px 30px;
-  font-size:18px;
-  border-radius:12px;
-  cursor:pointer;
-  margin-top:15px;
-  box-shadow:0 0 15px rgba(255,106,0,0.35);
+margin-top:20px;
+padding:16px;
+border:none;
+background:#ff5a2f;
+color:white;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
 }
-@media(max-width:700px){
-  .nav{flex-direction:column;gap:12px}
+
+.total{
+margin-top:10px;
+font-size:20px;
+font-weight:bold;
+text-align:center;
 }
+
 </style>
-</head>
-<body>
-
-<div class="nav">
-  <div class="brand">ChefHaus</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="chefs.html">Find a Chef</a>
-    <a href="become-a-chef.html">Become a Chef</a>
-  </div>
-</div>
-
-<div class="overlay">
-  <div class="hero">
-    <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=900&q=80" alt="Marco Rossi">
-    <h1>Book Marco Rossi</h1>
-    <p>Italian Fine Dining Chef — premium in-home dining experience.</p>
-    <div class="price-note">$110 per guest</div>
-  </div>
-
-  <form action="https://formspree.io/f/xreygzbj" method="POST">
-    <input type="hidden" name="chef" value="Marco Rossi">
-    <input type="hidden" name="_subject" value="New ChefHaus Booking Request - Marco Rossi">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://chefhaus.vercel.app/success.html">
-
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <input type="date" name="date" required>
-    <input type="number" id="guests" name="guests" placeholder="Number of Guests" min="1" required oninput="updateTotal()">
-    <textarea name="requests" placeholder="Special Requests"></textarea>
-
-    <div class="total-box">
-      Estimated Total: $<span id="total">0</span>
-    </div>
-    <div class="small-text">Based on $110 per guest.</div>
-
-    <button type="submit">Request Booking</button>
-  </form>
-</div>
 
 <script>
-function updateTotal() {
-  const guests = parseInt(document.getElementById('guests').value) || 0;
-  const pricePerGuest = 110;
-  const total = guests * pricePerGuest;
-  document.getElementById('total').textContent = total;
+
+function calculateTotal(){
+
+let guests = document.getElementById("guests").value;
+
+let price = 110;
+
+let total = guests * price;
+
+document.getElementById("total").innerHTML = 
+"Estimated total: $" + total;
+
 }
+
 </script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Book Marco Rossi</h1>
+
+<form>
+
+<input placeholder="Full Name" required>
+
+<input placeholder="Email" required>
+
+<input placeholder="Phone Number" required>
+
+<select id="guests" onchange="calculateTotal()">
+
+<option value="1">1 Guest</option>
+<option value="2">2 Guests</option>
+<option value="3">3 Guests</option>
+<option value="4">4 Guests</option>
+<option value="5">5 Guests</option>
+<option value="6">6 Guests</option>
+<option value="7">7 Guests</option>
+<option value="8">8 Guests</option>
+
+</select>
+
+<input type="date" required>
+
+<textarea placeholder="Food preferences / allergies"></textarea>
+
+<div class="total" id="total">
+Estimated total: $110
+</div>
+
+<a href="https://buy.stripe.com/bJeeVcePogQpaG12tLfYY00">
+
+<button type="button">
+Pay & Confirm Booking
+</button>
+
+</a>
+
+</form>
+
+</div>
 
 </body>
 </html>
