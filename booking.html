@@ -1,127 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Book a Chef - ChefHaus</title>
+
+<title>Book a Private Chef | ChefHaus</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+
 body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#111;
+font-family:Arial;
+background:#0f0f10;
 color:white;
+margin:0;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:40px 20px;
+}
+
+h1{
 text-align:center;
-background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-}
-
-.overlay{
-background:rgba(0,0,0,0.75);
-min-height:100vh;
-padding:40px 20px 80px 20px;
-}
-
-.hero{
-padding:30px 20px;
-}
-
-.hero img{
-width:140px;
-height:140px;
-object-fit:cover;
-border-radius:50%;
-border:4px solid #ff5a00;
-margin-bottom:20px;
-box-shadow:0 0 20px rgba(255,90,0,0.4);
-}
-
-.hero h1{
-font-size:42px;
-margin:10px 0;
-}
-
-.hero p{
-font-size:18px;
-color:#ddd;
-max-width:600px;
-margin:0 auto;
+margin-bottom:30px;
+font-size:40px;
 }
 
 form{
-background:rgba(20,20,20,0.95);
-max-width:520px;
-margin:30px auto 0 auto;
-padding:30px;
+display:flex;
+flex-direction:column;
+gap:15px;
+background:#151518;
+padding:25px;
 border-radius:18px;
-box-shadow:0 8px 25px rgba(0,0,0,0.5);
+border:1px solid rgba(255,255,255,0.06);
 }
 
-input, textarea{
-width:90%;
+input,textarea,select{
 padding:14px;
-margin:10px 0;
-border:none;
 border-radius:10px;
+border:none;
 font-size:16px;
-background:#2a2a2a;
+background:#232326;
 color:white;
 }
 
 textarea{
-min-height:120px;
-resize:vertical;
+min-height:100px;
 }
 
 button{
-background:#ff5a00;
-color:white;
+margin-top:20px;
+padding:16px;
 border:none;
-padding:16px 30px;
+background:#ff5a2f;
+color:white;
 font-size:18px;
-border-radius:10px;
+border-radius:12px;
 cursor:pointer;
-margin-top:15px;
-box-shadow:0 0 15px rgba(255,90,0,0.35);
 }
 
-a{
-text-decoration:none;
-color:white;
+.note{
+color:#ccc;
+margin-top:10px;
+font-size:14px;
+text-align:center;
 }
 
 .back{
-margin-top:30px;
-font-size:18px;
+display:block;
+text-align:center;
+margin-top:25px;
+color:#ccc;
+text-decoration:none;
+}
+
+.total{
+text-align:center;
+margin-top:10px;
+font-size:20px;
+font-weight:bold;
 }
 
 </style>
+
+<script>
+
+function calculateTotal(){
+
+let guests = document.getElementById("guests").value;
+
+let price = 110;
+
+let total = guests * price;
+
+document.getElementById("total").innerHTML =
+"Estimated total: $" + total;
+
+}
+
+</script>
+
 </head>
+
 <body>
 
-<div class="overlay">
+<div class="container">
 
-  <div class="hero">
-    <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80" alt="Chef">
-    <h1>Book Your Chef</h1>
-    <p>Tell us your details and request a premium private dining experience at home.</p>
-  </div>
+<h1>Book Marco Rossi</h1>
 
-  <form action="https://formspree.io/f/xreygzbj" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <input type="date" name="date" required>
-    <input type="number" name="guests" placeholder="Number of Guests" required>
-    <textarea name="requests" placeholder="Special Requests"></textarea>
+<form>
 
-    <input type="hidden" name="_subject" value="New ChefHaus Booking Request">
-    <input type="hidden" name="_captcha" value="false">
+<input type="text" value="Marco Rossi" readonly>
 
-    <button type="submit">Request Booking</button>
-  </form>
+<input placeholder="Full Name" required>
 
-  <div class="back">
-    <a href="index.html">← Back to Home</a>
-  </div>
+<input placeholder="Email Address" required>
+
+<input placeholder="Phone Number">
+
+<select id="guests" onchange="calculateTotal()">
+
+<option value="1">1 Guest</option>
+<option value="2">2 Guests</option>
+<option value="3">3 Guests</option>
+<option value="4">4 Guests</option>
+<option value="5">5 Guests</option>
+<option value="6">6 Guests</option>
+<option value="7">7 Guests</option>
+<option value="8">8 Guests</option>
+
+</select>
+
+<input type="date">
+
+<textarea placeholder="Food preferences, allergies or special requests"></textarea>
+
+<div class="total" id="total">
+Estimated total: $110
+</div>
+
+<p class="note">
+After clicking payment please adjust the <b>quantity</b> on the Stripe payment page to match the number of guests selected.
+</p>
+
+<a href="https://buy.stripe.com/bJeeVcePogQpaG12tLfYY00">
+<button type="button">
+Proceed to Payment
+</button>
+</a>
+
+</form>
+
+<a class="back" href="index.html">
+← Back to Home
+</a>
 
 </div>
 
