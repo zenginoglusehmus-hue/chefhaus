@@ -1,56 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>Book Marco Rossi</title>
+<title>Book Marco Rossi - ChefHaus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-
 body{
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#0f0f10;
 color:white;
 margin:0;
+padding:0;
 }
 
 .container{
 max-width:700px;
 margin:auto;
-padding:40px;
+padding:40px 20px;
 }
 
 h1{
 text-align:center;
 margin-bottom:30px;
+font-size:42px;
 }
 
 form{
 display:flex;
 flex-direction:column;
 gap:15px;
+background:#151518;
+padding:25px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.06);
 }
 
-input,textarea,select{
+input, textarea, select{
 padding:14px;
-border-radius:8px;
+border-radius:10px;
 border:none;
 font-size:16px;
+background:#232326;
+color:white;
 }
 
 textarea{
 min-height:100px;
-}
-
-button{
-margin-top:20px;
-padding:16px;
-border:none;
-background:#ff5a2f;
-color:white;
-font-size:18px;
-border-radius:10px;
-cursor:pointer;
+resize:vertical;
 }
 
 .total{
@@ -58,27 +53,50 @@ margin-top:10px;
 font-size:20px;
 font-weight:bold;
 text-align:center;
+color:#fff;
+}
+
+.note{
+color:#ccc;
+margin-top:10px;
+font-size:14px;
+line-height:1.5;
+text-align:center;
+}
+
+.pay-btn{
+display:block;
+margin-top:20px;
+padding:16px;
+border:none;
+background:linear-gradient(135deg,#c92a1f,#ff5a2f);
+color:white;
+font-size:18px;
+border-radius:12px;
+cursor:pointer;
+text-decoration:none;
+text-align:center;
+font-weight:700;
+}
+
+.back{
+display:block;
+text-align:center;
+margin-top:20px;
+color:#ccc;
+text-decoration:none;
 }
 
 </style>
 
 <script>
-
 function calculateTotal(){
-
 let guests = document.getElementById("guests").value;
-
 let price = 110;
-
 let total = guests * price;
-
-document.getElementById("total").innerHTML = 
-"Estimated total: $" + total;
-
+document.getElementById("total").innerHTML = "Estimated total: $" + total;
 }
-
 </script>
-
 </head>
 
 <body>
@@ -90,13 +108,10 @@ document.getElementById("total").innerHTML =
 <form>
 
 <input placeholder="Full Name" required>
-
 <input placeholder="Email" required>
-
 <input placeholder="Phone Number" required>
 
 <select id="guests" onchange="calculateTotal()">
-
 <option value="1">1 Guest</option>
 <option value="2">2 Guests</option>
 <option value="3">3 Guests</option>
@@ -105,7 +120,6 @@ document.getElementById("total").innerHTML =
 <option value="6">6 Guests</option>
 <option value="7">7 Guests</option>
 <option value="8">8 Guests</option>
-
 </select>
 
 <input type="date" required>
@@ -116,15 +130,17 @@ document.getElementById("total").innerHTML =
 Estimated total: $110
 </div>
 
-<a href="https://buy.stripe.com/bJeeVcePogQpaG12tLfYY00">
+<p class="note">
+After clicking payment, please adjust the <b>Quantity</b> on the Stripe payment page to match the number of guests you selected.
+</p>
 
-<button type="button">
+<a href="https://buy.stripe.com/bJeeVcePogQpaG12tLfYY00" class="pay-btn">
 Pay & Confirm Booking
-</button>
-
 </a>
 
 </form>
+
+<a href="marco.html" class="back">← Back to Marco</a>
 
 </div>
 
